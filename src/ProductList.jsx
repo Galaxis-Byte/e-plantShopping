@@ -258,6 +258,10 @@ function ProductList() {
     };
 
     const handleAddToCart = (product) => {
+        if (isInCart(product.name)) {
+            return;
+        }
+        
         dispatch(addItem(product));
         setAddedToCart((prevState) => ({
             ...prevState,
